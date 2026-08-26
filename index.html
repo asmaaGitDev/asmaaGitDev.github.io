@@ -1,67 +1,442 @@
-from pathlib import Path
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asmaa Sarih — Senior Full-Stack Java Engineer</title>
+<meta name="description" content="Asmaa Sarih — Senior Full-Stack Java Engineer (Java 17, Spring Boot, Spring Security, React). 7+ years building enterprise applications. Open to remote & nearshore roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #16324F;
+    --navy-deep: #0D1F32;
+    --line-cyan: #8FC1D4;
+    --line-cyan-dim: rgba(143,193,212,0.22);
+    --paper: #EAF2F1;
+    --paper-dim: #C7D6D6;
+    --amber: #E7A94C;
+    --slate: #6E8FA3;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --grid-size: 44px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      linear-gradient(var(--line-cyan-dim) 1px, transparent 1px) 0 0 / var(--grid-size) var(--grid-size),
+      linear-gradient(90deg, var(--line-cyan-dim) 1px, transparent 1px) 0 0 / var(--grid-size) var(--grid-size),
+      var(--navy);
+    color: var(--paper);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--amber); color:var(--navy-deep);}
 
-src = Path("/mnt/data/Texte collé.txt")
-html = src.read_text(encoding="utf-8")
+  /* corner registration marks used at section boundaries */
+  .reg::before, .reg::after{
+    content:"+"; position:absolute; color:var(--line-cyan); font-size:14px; opacity:.55; font-family:var(--font-mono);
+  }
+  .reg::before{ top:-2px; left:-2px; }
+  .reg::after{ top:-2px; right:-2px; }
 
-# Keep the complete existing design/CSS and replace only content-related text/data.
-replacements = {
-    '<title>Asmaa Sarih — Full-Stack Java Engineer</title>':
-        '<title>Asmaa Sarih — Senior Full-Stack Java Engineer</title>',
-    'content="Asmaa Sarih — Full-Stack Java Engineer (Spring Boot, Angular, React). 7+ years building enterprise systems. Open to remote & nearshore roles."':
-        'content="Asmaa Sarih — Senior Full-Stack Java Engineer (Java 17, Spring Boot, Spring Security, React). 7+ years building enterprise applications. Open to remote & nearshore roles."',
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
 
-    'Ingénieure Java Full-Stack — Spring Boot · Angular · React':
-        'Senior Ingénieure Java Full-Stack — Java 17 · Spring Boot · Spring Security · React',
-    'Full-Stack Java Engineer — Spring Boot · Angular · React':
-        'Senior Full-Stack Java Engineer — Java 17 · Spring Boot · Spring Security · React',
+  /* ---------- top bar ---------- */
+  header.topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,31,50,0.86);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line-cyan-dim);
+  }
+  .topbar-inner{
+    max-width:1080px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--font-mono); font-size:14px; letter-spacing:0.04em; color:var(--paper);
+  }
+  .logo b{color:var(--amber); font-weight:500;}
+  nav.toplinks{display:flex; gap:26px; align-items:center;}
+  nav.toplinks a{
+    font-family:var(--font-mono); font-size:12.5px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--paper-dim); text-decoration:none; transition:color .15s;
+  }
+  nav.toplinks a:hover{color:var(--amber);}
+  #langToggle{
+    font-family:var(--font-mono); font-size:12px; letter-spacing:.05em;
+    background:transparent; border:1px solid var(--line-cyan-dim); color:var(--paper);
+    padding:6px 10px; border-radius:2px; cursor:pointer;
+  }
+  #langToggle:hover{border-color:var(--amber); color:var(--amber);}
 
-    '7 ans d\'expérience à concevoir et faire évoluer des applications d\'entreprise, du modèle de données à l\'interface. Basée à Casablanca, ouverte aux postes remote et nearshore.':
-        '7+ ans d’expérience dans la conception, le développement et le déploiement d’applications métier d’entreprise, du modèle de données à l’interface. Spécialisée en Java, Spring Boot, Spring Security, React et SQL Server. Basée à Casablanca, ouverte aux opportunités remote et nearshore en Europe.',
+  /* ---------- hero ---------- */
+  section.hero{
+    padding:96px 0 72px; position:relative;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:48px; align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.14em; color:var(--amber);
+    text-transform:uppercase; margin-bottom:18px; display:block;
+  }
+  h1.name{
+    font-family:var(--font-display); font-weight:700; font-size:clamp(38px,5vw,58px);
+    line-height:1.05; color:var(--paper); margin-bottom:10px;
+  }
+  .role{
+    font-family:var(--font-display); font-weight:500; font-size:clamp(17px,2vw,21px);
+    color:var(--line-cyan); margin-bottom:22px;
+  }
+  .pitch{ font-size:16px; color:var(--paper-dim); max-width:46ch; margin-bottom:30px;}
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-mono); font-size:13px; letter-spacing:.03em; text-decoration:none;
+    padding:12px 20px; border-radius:2px; display:inline-block; transition:transform .15s, box-shadow .15s;
+  }
+  .btn-primary{background:var(--amber); color:var(--navy-deep); font-weight:600;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(231,169,76,.25);}
+  .btn-ghost{border:1px solid var(--line-cyan-dim); color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--amber); color:var(--amber);}
 
-    '7 years of experience designing and evolving enterprise applications, from data model to interface. Based in Casablanca, open to remote and nearshore roles across Europe.':
-        '7+ years of experience designing, developing and deploying enterprise business applications, from data models and REST APIs to modern web interfaces. Specialized in Java, Spring Boot, Spring Security, React and SQL Server. Based in Casablanca, open to remote and nearshore opportunities across Europe.',
+  /* schematic diagram */
+  .diagram{
+    position:relative; border:1px solid var(--line-cyan-dim); border-radius:3px;
+    background:rgba(234,242,241,0.02); padding:22px 18px;
+  }
+  .diagram svg{ width:100%; height:auto; display:block;}
+  .diagram-caption{
+    font-family:var(--font-mono); font-size:10.5px; color:var(--slate); letter-spacing:.06em;
+    margin-top:10px; text-transform:uppercase;
+  }
 
-    'Angular / React':
-        'REACT / ANGULAR',
-    'SQL / POSTGRES':
-        'SQL SERVER / POSTGRES',
-    'Schéma type des applications livrées':
-        'Architecture type des applications livrées',
-    'Typical architecture of delivered applications':
-        'Typical architecture of delivered applications',
+  /* ---------- section shell ---------- */
+  section.block{ padding:64px 0; position:relative; border-top:1px solid var(--line-cyan-dim); }
+  .fig-label{
+    font-family:var(--font-mono); font-size:12px; color:var(--amber); letter-spacing:.12em;
+    display:block; margin-bottom:8px;
+  }
+  h2.block-title{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(24px,3vw,32px);
+    color:var(--paper); margin-bottom:34px;
+  }
 
-    'Java / JEE</span><span class="chip">Spring Boot':
-        'Java 17 / JEE</span><span class="chip">Spring Boot',
-    '<span class="chip">Spring MVC</span><span class="chip">Spring Data</span><span class="chip">Spring Security</span><span class="chip">Hibernate</span>':
-        '<span class="chip">Spring MVC</span><span class="chip">Spring Data JPA</span><span class="chip">Spring Security</span><span class="chip">JPA / Hibernate</span>',
-    '<span class="chip">Maven</span><span class="chip">Jasper Report</span>':
-        '<span class="chip">Maven</span><span class="chip">JWT</span><span class="chip">REST API</span><span class="chip">Jasper Report</span>',
+  /* ---------- skills ---------- */
+  .stack-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:16px;
+  }
+  .stack-box{
+    border:1px solid var(--line-cyan-dim); border-radius:3px; padding:18px 18px 16px;
+    background:rgba(234,242,241,0.02);
+  }
+  .stack-box h3{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--line-cyan); margin-bottom:12px;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    font-family:var(--font-mono); font-size:11.5px; color:var(--paper-dim);
+    border:1px solid var(--line-cyan-dim); border-radius:2px; padding:4px 9px;
+  }
 
-    '<span class="chip">React</span><span class="chip">Angular</span><span class="chip">AngularJS</span>':
-        '<span class="chip">React</span><span class="chip">PrimeReact</span><span class="chip">Angular</span><span class="chip">AngularJS</span>',
+  /* ---------- projects ---------- */
+  .proj-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:22px;}
+  .proj-card{
+    position:relative; border:1px solid var(--line-cyan-dim); border-radius:3px;
+    padding:24px 22px; background:rgba(234,242,241,0.02);
+  }
+  .proj-card .corner{position:absolute; width:10px; height:10px; border-color:var(--amber); opacity:.7;}
+  .proj-card .corner.tl{top:-1px; left:-1px; border-top:2px solid; border-left:2px solid;}
+  .proj-card .corner.br{bottom:-1px; right:-1px; border-bottom:2px solid; border-right:2px solid;}
+  .proj-num{font-family:var(--font-mono); font-size:11px; color:var(--amber); letter-spacing:.1em;}
+  .proj-card h3{
+    font-family:var(--font-display); font-size:19px; font-weight:600; margin:8px 0 4px; color:var(--paper);
+  }
+  .proj-org{font-family:var(--font-mono); font-size:11.5px; color:var(--slate); margin-bottom:12px; display:block;}
+  .proj-desc{font-size:14.5px; color:var(--paper-dim); margin-bottom:14px;}
+  .proj-tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .proj-tags span{
+    font-family:var(--font-mono); font-size:10.5px; color:var(--line-cyan);
+    border:1px solid var(--line-cyan-dim); padding:3px 7px; border-radius:2px;
+  }
 
-    '<span class="chip">Git</span><span class="chip">SVN</span><span class="chip">SonarQube</span><span class="chip">Postman</span>':
-        '<span class="chip">Git</span><span class="chip">SVN</span><span class="chip">Docker</span><span class="chip">Jenkins</span><span class="chip">SonarQube</span><span class="chip">Postman</span>',
-}
+  /* ---------- experience (log style) ---------- */
+  .log{ position:relative; padding-left:26px; }
+  .log::before{
+    content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--line-cyan-dim);
+  }
+  .log-entry{ position:relative; padding-bottom:30px;}
+  .log-entry:last-child{ padding-bottom:0;}
+  .log-entry::before{
+    content:""; position:absolute; left:-26px; top:5px; width:10px; height:10px; border-radius:50%;
+    background:var(--navy); border:2px solid var(--amber);
+  }
+  .log-date{ font-family:var(--font-mono); font-size:11.5px; color:var(--amber); letter-spacing:.06em;}
+  .log-entry h3{ font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--paper); margin:4px 0 2px;}
+  .log-org{ font-family:var(--font-mono); font-size:12px; color:var(--slate); margin-bottom:10px; display:block;}
+  .log-entry ul{ padding-left:18px; color:var(--paper-dim); font-size:14.5px;}
+  .log-entry li{ margin-bottom:5px;}
 
-for old, new in replacements.items():
-    html = html.replace(old, new)
+  /* ---------- education / certs / languages ---------- */
+  .info-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;}
+  .info-card h3{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--line-cyan); margin-bottom:12px;
+  }
+  .info-card p, .info-card li{ font-size:14.5px; color:var(--paper-dim); margin-bottom:8px;}
+  .info-card ul{ list-style:none;}
+  .info-card .meta{ font-family:var(--font-mono); font-size:11.5px; color:var(--slate); display:block;}
 
-# Replace the architecture labels more precisely.
-html = html.replace(
-    '<text x="76" y="35" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">ANGULAR / REACT</text>',
-    '<text x="76" y="35" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">REACT / ANGULAR</text>'
-)
-html = html.replace(
-    '<text x="265" y="217" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">SQL / POSTGRES</text>',
-    '<text x="265" y="217" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">SQL SERVER / POSTGRES</text>'
-)
+  /* ---------- title block / footer ---------- */
+  footer{ border-top:1px solid var(--line-cyan-dim); padding:44px 0 30px;}
+  .titleblock{
+    border:1px solid var(--line-cyan-dim); border-radius:3px; overflow:hidden;
+  }
+  .titleblock-row{ display:grid; grid-template-columns:repeat(4,1fr); }
+  .tb-cell{ padding:14px 16px; border-right:1px solid var(--line-cyan-dim); border-bottom:1px solid var(--line-cyan-dim);}
+  .tb-cell:last-child{ border-right:none;}
+  .tb-cell .k{ font-family:var(--font-mono); font-size:10px; letter-spacing:.1em; color:var(--slate); text-transform:uppercase; display:block; margin-bottom:5px;}
+  .tb-cell .v{ font-size:13.5px; color:var(--paper);}
+  .tb-cell .v a{ text-decoration:none; color:var(--paper);}
+  .tb-cell .v a:hover{ color:var(--amber);}
+  .footer-note{
+    font-family:var(--font-mono); font-size:11px; color:var(--slate); text-align:center; margin-top:22px;
+  }
 
-# Replace the entire projects and experience data blocks while preserving rendering/design.
-start = html.index('    projects: {\n      title:"Projets",')
-end = html.index('    experience: {', start)
+  @media (max-width:760px){
+    .hero-grid{ grid-template-columns:1fr;}
+    .titleblock-row{ grid-template-columns:repeat(2,1fr);}
+    nav.toplinks{ display:none;}
+  }
+</style>
+</head>
+<body>
 
-projects_fr_en = '''    projects: {
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">ASMAA<b>·</b>SARIH</div>
+    <nav class="toplinks">
+      <a href="#stack" data-i18n="nav.stack">STACK</a>
+      <a href="#projects" data-i18n="nav.projects">PROJETS</a>
+      <a href="#experience" data-i18n="nav.experience">EXPÉRIENCE</a>
+      <a href="#contact" data-i18n="nav.contact">CONTACT</a>
+    </nav>
+    <button id="langToggle">EN</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero.eyebrow">DISPONIBLE — REMOTE / NEARSHORE</span>
+      <h1 class="name">Asmaa Sarih</h1>
+      <div class="role" data-i18n="hero.role">Senior Ingénieure Java Full-Stack — Java 17 · Spring Boot · Spring Security · React</div>
+      <p class="pitch" data-i18n="hero.pitch">7+ ans d’expérience dans la conception, le développement et le déploiement d’applications métier d’entreprise, du modèle de données à l’interface. Spécialisée en Java, Spring Boot, Spring Security, React et SQL Server. Basée à Casablanca, ouverte aux opportunités remote et nearshore en Europe.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:asmaa.srh@gmail.com" data-i18n="hero.ctaEmail">M'écrire</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/asmaa-sarih-1bb12b146" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/asmaaGitDev" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="diagram">
+      <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#8FC1D4"/>
+          </marker>
+        </defs>
+        <!-- client -->
+        <rect x="16" y="18" width="120" height="42" rx="2" fill="none" stroke="#8FC1D4" stroke-width="1"/>
+        <text x="76" y="35" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">REACT / ANGULAR</text>
+        <text x="76" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">CLIENT</text>
+
+        <!-- gateway -->
+        <rect x="224" y="18" width="120" height="42" rx="2" fill="none" stroke="#E7A94C" stroke-width="1.2"/>
+        <text x="284" y="35" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">SPRING SECURITY</text>
+        <text x="284" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">JWT · GATEWAY</text>
+
+        <line x1="136" y1="39" x2="222" y2="39" stroke="#8FC1D4" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+
+        <!-- services -->
+        <rect x="120" y="110" width="120" height="42" rx="2" fill="none" stroke="#8FC1D4" stroke-width="1"/>
+        <text x="180" y="127" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">SPRING BOOT</text>
+        <text x="180" y="140" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">SERVICES</text>
+
+        <line x1="284" y1="60" x2="200" y2="108" stroke="#8FC1D4" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+
+        <!-- data layer -->
+        <rect x="30" y="200" width="130" height="42" rx="2" fill="none" stroke="#8FC1D4" stroke-width="1"/>
+        <text x="95" y="217" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">JPA / HIBERNATE</text>
+        <text x="95" y="230" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">PERSISTENCE</text>
+
+        <rect x="200" y="200" width="130" height="42" rx="2" fill="none" stroke="#8FC1D4" stroke-width="1"/>
+        <text x="265" y="217" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">SQL SERVER / POSTGRES</text>
+        <text x="265" y="230" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">DATABASE</text>
+
+        <line x1="150" y1="152" x2="105" y2="198" stroke="#8FC1D4" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+        <line x1="210" y1="152" x2="255" y2="198" stroke="#8FC1D4" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+
+        <text x="180" y="280" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#6E8FA3" letter-spacing="1">FIG. 00 — ARCHITECTURE TYPE</text>
+      </svg>
+      <div class="diagram-caption" data-i18n="hero.diagramCaption">Architecture type des applications livrées</div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="stack">
+  <div class="wrap">
+    <span class="fig-label">FIG. 01</span>
+    <h2 class="block-title" data-i18n="stack.title">Stack technique</h2>
+    <div class="stack-grid">
+      <div class="stack-box">
+        <h3 data-i18n="stack.backend">BACK-END</h3>
+        <div class="chip-row">
+          <span class="chip">Java 17 / JEE</span><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span>
+          <span class="chip">Spring Data</span><span class="chip">Spring Security</span><span class="chip">Hibernate</span>
+          <span class="chip">Maven</span><span class="chip">JWT</span><span class="chip">REST API</span><span class="chip">Jasper Report</span>
+        </div>
+      </div>
+      <div class="stack-box">
+        <h3 data-i18n="stack.frontend">FRONT-END</h3>
+        <div class="chip-row">
+          <span class="chip">React</span><span class="chip">PrimeReact</span><span class="chip">Angular</span><span class="chip">AngularJS</span>
+          <span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">HTML5</span>
+          <span class="chip">CSS3</span><span class="chip">Bootstrap</span>
+        </div>
+      </div>
+      <div class="stack-box">
+        <h3 data-i18n="stack.db">BASES DE DONNÉES</h3>
+        <div class="chip-row">
+          <span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span>
+        </div>
+      </div>
+      <div class="stack-box">
+        <h3 data-i18n="stack.devops">DEVOPS &amp; OUTILS</h3>
+        <div class="chip-row">
+          <span class="chip">Git</span><span class="chip">SVN</span><span class="chip">Docker</span><span class="chip">Jenkins</span><span class="chip">SonarQube</span><span class="chip">Postman</span>
+          <span class="chip">IntelliJ</span><span class="chip">Eclipse</span><span class="chip">VS Code</span>
+        </div>
+      </div>
+      <div class="stack-box">
+        <h3 data-i18n="stack.methods">MÉTHODES</h3>
+        <div class="chip-row">
+          <span class="chip">Agile Scrum</span><span class="chip">UML</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="projects">
+  <div class="wrap">
+    <span class="fig-label">FIG. 02</span>
+    <h2 class="block-title" data-i18n="projects.title">Projets</h2>
+    <div class="proj-grid" id="projGrid"></div>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <span class="fig-label">FIG. 03</span>
+    <h2 class="block-title" data-i18n="experience.title">Expérience</h2>
+    <div class="log" id="expLog"></div>
+  </div>
+</section>
+
+<section class="block" id="background">
+  <div class="wrap">
+    <span class="fig-label">FIG. 04</span>
+    <h2 class="block-title" data-i18n="background.title">Formation &amp; certifications</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3 data-i18n="background.education">FORMATION</h3>
+        <p><strong>Ingénieur d'État en Génie Informatique</strong><br>
+        <span data-i18n="background.speciality">Spécialité Génie Logiciel</span><br>
+        <span class="meta">ENSA, Khouribga · 2018</span></p>
+        <p><strong data-i18n="background.bac">Baccalauréat Sciences Mathématiques A</strong><br>
+        <span class="meta">Lycée El Kindi, Fquih Ben Salah · 2013</span></p>
+      </div>
+      <div class="info-card">
+        <h3 data-i18n="background.certs">CERTIFICATIONS</h3>
+        <ul>
+          <li>LinkedIn Learning — Learning Java 17</li>
+          <li>LinkedIn Learning — Creating Spring Boot Microservices</li>
+          <li>LinkedIn Learning — Microsoft SQL Server 2019 Essential Training</li>
+          <li data-i18n="background.certAppreciation">Certificat d'appréciation professionnelle</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3 data-i18n="background.languages">LANGUES</h3>
+        <p data-i18n="background.langList">Arabe — langue maternelle · Français — courant (C1) · Anglais — courant (B2)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="fig-label" data-i18n="footer.eyebrow">TITLE BLOCK</span>
+    <div class="titleblock">
+      <div class="titleblock-row">
+        <div class="tb-cell">
+          <span class="k" data-i18n="footer.name">NOM</span>
+          <span class="v">Asmaa Sarih</span>
+        </div>
+        <div class="tb-cell">
+          <span class="k" data-i18n="footer.location">LOCALISATION</span>
+          <span class="v">Casablanca, Maroc</span>
+        </div>
+        <div class="tb-cell">
+          <span class="k" data-i18n="footer.email">EMAIL</span>
+          <span class="v"><a href="mailto:asmaa.srh@gmail.com">asmaa.srh@gmail.com</a></span>
+        </div>
+        <div class="tb-cell">
+          <span class="k" data-i18n="footer.phone">TÉLÉPHONE</span>
+          <span class="v">+212 698 620 292</span>
+        </div>
+      </div>
+      <div class="titleblock-row">
+        <div class="tb-cell">
+          <span class="k">LINKEDIN</span>
+          <span class="v"><a href="https://linkedin.com/in/asmaa-sarih-1bb12b146" target="_blank" rel="noopener">asmaa-sarih-1bb12b146</a></span>
+        </div>
+        <div class="tb-cell">
+          <span class="k">GITHUB</span>
+          <span class="v"><a href="https://github.com/asmaaGitDev" target="_blank" rel="noopener">@asmaaGitDev</a></span>
+        </div>
+        <div class="tb-cell">
+          <span class="k" data-i18n="footer.status">STATUT</span>
+          <span class="v" data-i18n="footer.statusValue">Ouverte aux opportunités remote / nearshore</span>
+        </div>
+        <div class="tb-cell">
+          <span class="k" data-i18n="footer.experience">EXPÉRIENCE</span>
+          <span class="v" data-i18n="footer.experienceValue">7+ ans</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">© 2026 ASMAA SARIH — <span data-i18n="footer.rev">REV. FR/EN DISPONIBLE</span></div>
+  </div>
+</footer>
+
+<script>
+const content = {
+  fr: {
+    nav: { stack:"STACK", projects:"PROJETS", experience:"EXPÉRIENCE", contact:"CONTACT" },
+    hero: {
+      eyebrow:"DISPONIBLE — REMOTE / NEARSHORE",
+      role:"Senior Ingénieure Java Full-Stack — Java 17 · Spring Boot · Spring Security · React",
+      pitch:"7 ans d'expérience à concevoir et faire évoluer des applications d'entreprise, du modèle de données à l'interface. Basée à Casablanca, ouverte aux postes remote et nearshore pour l'Europe.",
+      ctaEmail:"M'écrire",
+      diagramCaption:"Architecture type des applications livrées"
+    },
+    stack: { title:"Stack technique", backend:"BACK-END", frontend:"FRONT-END", db:"BASES DE DONNÉES", devops:"DEVOPS & OUTILS", methods:"MÉTHODES" },
+    projects: {
       title:"Projets",
       items:[
         {
@@ -91,49 +466,7 @@ projects_fr_en = '''    projects: {
         }
       ]
     },
-'''
-html = html[:start] + projects_fr_en + html[end:]
-
-# Replace English project block.
-start = html.index('    projects: {\n      title:"Projects",')
-end = html.index('    experience: {', start)
-projects_en = '''    projects: {
-      title:"Projects",
-      items:[
-        {
-          num:"P.01", title:"Temporary Trainers Management Platform", org:"OFPPT · Casablanca · 2021–Present",
-          desc:"Enterprise application for managing temporary trainers and related request, scheduling, validation and tracking workflows. Contributed to the design, development and deployment of the solution.",
-          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","WebSocket/STOMP","Docker"]
-        },
-        {
-          num:"P.02", title:"Dormitory Management Platform", org:"OFPPT · Casablanca · 2021–Present",
-          desc:"Full-stack platform for managing dormitory reservations, validations, capacities, criteria, supporting documents and dashboards.",
-          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","JPA/Hibernate"]
-        },
-        {
-          num:"P.03", title:"Titulos — School Records Management", org:"Grupo Avalon · Tétouan · 2020–2021",
-          desc:"School records management application. Developed business modules, managed and optimized the PostgreSQL database, and generated dynamic reports with Jasper Report.",
-          tags:["Java/JEE","Spring MVC","Spring Data","Hibernate","AngularJS","PostgreSQL","Jasper Report"]
-        },
-        {
-          num:"P.04", title:"Rooming List & AtlasVoyages", org:"Fractalité · Casablanca · 2018–2020",
-          desc:"Developed a Rooming List management algorithm and designed and built the AtlasVoyages website and its mobile adaptation.",
-          tags:["JavaScript","AngularJS","Node.js","MongoDB","Bootstrap","pdfMake"]
-        },
-        {
-          num:"P.05", title:"Online Appointment Booking Platform", org:"Architeo · Rabat · Internship 2017",
-          desc:"Built an online appointment booking platform independently during the final-year internship.",
-          tags:["Java","Bootstrap","MySQL"]
-        }
-      ]
-    },
-'''
-html = html[:start] + projects_en + html[end:]
-
-# Replace experience blocks.
-start = html.index('    experience: {\n      title:"Expérience",')
-end = html.index('    background: {', start)
-exp_fr = '''    experience: {
+    experience: {
       title:"Expérience",
       items:[
         {
@@ -171,12 +504,58 @@ exp_fr = '''    experience: {
         }
       ]
     },
-'''
-html = html[:start] + exp_fr + html[end:]
-
-start = html.index('    experience: {\n      title:"Experience",')
-end = html.index('    background: {', start)
-exp_en = '''    experience: {
+    background: {
+      title:"Formation & certifications", education:"FORMATION", speciality:"Spécialité Génie Logiciel", bac:"Baccalauréat Sciences Mathématiques A",
+      certs:"CERTIFICATIONS", certAppreciation:"Certificat d'appréciation professionnelle",
+      languages:"LANGUES", langList:"Arabe — langue maternelle · Français — courant (C1) · Anglais — courant (B2)"
+    },
+    footer: {
+      eyebrow:"CARTOUCHE", name:"NOM", location:"LOCALISATION", email:"EMAIL", phone:"TÉLÉPHONE",
+      status:"STATUT", statusValue:"Ouverte aux opportunités remote / nearshore", experience:"EXPÉRIENCE", experienceValue:"7+ ans",
+      rev:"VERSION FR/EN DISPONIBLE"
+    }
+  },
+  en: {
+    nav: { stack:"STACK", projects:"PROJECTS", experience:"EXPERIENCE", contact:"CONTACT" },
+    hero: {
+      eyebrow:"AVAILABLE — REMOTE / NEARSHORE",
+      role:"Senior Full-Stack Java Engineer — Java 17 · Spring Boot · Spring Security · React",
+      pitch:"7+ years of experience designing, developing and deploying enterprise business applications, from data models and REST APIs to modern web interfaces. Specialized in Java, Spring Boot, Spring Security, React and SQL Server. Based in Casablanca, open to remote and nearshore opportunities across Europe.",
+      ctaEmail:"Email me",
+      diagramCaption:"Typical architecture of delivered applications"
+    },
+    stack: { title:"Technical Stack", backend:"BACK-END", frontend:"FRONT-END", db:"DATABASES", devops:"DEVOPS & TOOLS", methods:"METHODS" },
+    projects: {
+      title:"Projects",
+      items:[
+        {
+          num:"P.01", title:"Temporary Trainers Management Platform", org:"OFPPT · Casablanca · 2021–Present",
+          desc:"Enterprise application for managing temporary trainers and related request, scheduling, validation and tracking workflows. Contributed to the design, development and deployment of the solution.",
+          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","WebSocket/STOMP","Docker"]
+        },
+        {
+          num:"P.02", title:"Dormitory Management Platform", org:"OFPPT · Casablanca · 2021–Present",
+          desc:"Full-stack platform for managing dormitory reservations, validations, capacities, criteria, supporting documents and dashboards.",
+          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","JPA/Hibernate"]
+        },
+        {
+          num:"P.03", title:"Titulos — School Records Management", org:"Grupo Avalon · Tétouan · 2020–2021",
+          desc:"School records management application. Developed business modules, managed and optimized the PostgreSQL database, and generated dynamic reports with Jasper Report.",
+          tags:["Java/JEE","Spring MVC","Spring Data","Hibernate","AngularJS","PostgreSQL","Jasper Report"]
+        },
+        {
+          num:"P.04", title:"Rooming List & AtlasVoyages", org:"Fractalité · Casablanca · 2018–2020",
+          desc:"Developed a Rooming List management algorithm and designed and built the AtlasVoyages website and its mobile adaptation.",
+          tags:["JavaScript","AngularJS","Node.js","MongoDB","Bootstrap","pdfMake"]
+        },
+        {
+          num:"P.05", title:"Online Appointment Booking Platform", org:"Architeo · Rabat · Internship 2017",
+          desc:"Built an online appointment booking platform independently during the final-year internship.",
+          tags:["Java","Bootstrap","MySQL"]
+        }
+      ]
+    },
+    experience: {
       title:"Experience",
       items:[
         {
@@ -193,7 +572,7 @@ exp_en = '''    experience: {
         {
           date:"MAR 2020 — APR 2021", title:"Java EE Developer", org:"Grupo Avalon · Tétouan",
           bullets:[
-            "Developed the \"Titulos\" application with Java/JEE, Spring MVC, Spring Data, Hibernate and AngularJS.",
+            "Developed the "Titulos" application with Java/JEE, Spring MVC, Spring Data, Hibernate and AngularJS.",
             "Managed the PostgreSQL database and optimized queries to improve performance.",
             "Generated dynamic reports with Jasper Report, managed source control with SVN and code quality with SonarQube."
           ]
@@ -214,14 +593,75 @@ exp_en = '''    experience: {
         }
       ]
     },
-'''
-html = html[:start] + exp_en + html[end:]
+    background: {
+      title:"Education & Certifications", education:"EDUCATION", speciality:"Software Engineering track", bac:"Baccalauréat, Mathematical Sciences A",
+      certs:"CERTIFICATIONS", certAppreciation:"Professional Appreciation Certificate",
+      languages:"LANGUAGES", langList:"Arabic — native · French — fluent (C1) · English — fluent (B2)"
+    },
+    footer: {
+      eyebrow:"TITLE BLOCK", name:"NAME", location:"LOCATION", email:"EMAIL", phone:"PHONE",
+      status:"STATUS", statusValue:"Open to remote / nearshore opportunities", experience:"EXPERIENCE", experienceValue:"7+ years",
+      rev:"FR/EN VERSION AVAILABLE"
+    }
+  }
+};
 
-# Update footer and labels without altering layout.
-html = html.replace('Ouverte au remote / nearshore', 'Ouverte aux opportunités remote / nearshore')
-html = html.replace('Open to remote / nearshore', 'Open to remote / nearshore opportunities')
+let currentLang = 'fr';
 
-# Save
-out = Path("/mnt/data/Asmaa_Sarih_Portfolio_Updated.html")
-out.write_text(html, encoding="utf-8")
-print(f"Created: {out}")
+function applyI18n(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const path = el.getAttribute('data-i18n').split('.');
+    let val = content[lang];
+    path.forEach(p=> val = val ? val[p] : null);
+    if(val) el.textContent = val;
+  });
+  renderProjects(lang);
+  renderExperience(lang);
+  document.getElementById('langToggle').textContent = lang === 'fr' ? 'EN' : 'FR';
+}
+
+function renderProjects(lang){
+  const grid = document.getElementById('projGrid');
+  grid.innerHTML = '';
+  content[lang].projects.items.forEach(p=>{
+    const card = document.createElement('div');
+    card.className = 'proj-card';
+    card.innerHTML = `
+      <span class="corner tl"></span><span class="corner br"></span>
+      <span class="proj-num">${p.num}</span>
+      <h3>${p.title}</h3>
+      <span class="proj-org">${p.org}</span>
+      <p class="proj-desc">${p.desc}</p>
+      <div class="proj-tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderExperience(lang){
+  const log = document.getElementById('expLog');
+  log.innerHTML = '';
+  content[lang].experience.items.forEach(e=>{
+    const entry = document.createElement('div');
+    entry.className = 'log-entry';
+    entry.innerHTML = `
+      <span class="log-date">${e.date}</span>
+      <h3>${e.title}</h3>
+      <span class="log-org">${e.org}</span>
+      <ul>${e.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+    `;
+    log.appendChild(entry);
+  });
+}
+
+document.getElementById('langToggle').addEventListener('click', ()=>{
+  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  applyI18n(currentLang);
+});
+
+applyI18n(currentLang);
+</script>
+
+</body>
+</html>
