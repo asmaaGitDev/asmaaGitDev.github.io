@@ -8,6 +8,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Asmaa Sarih",
+  "jobTitle": "Senior Full-Stack Java Engineer",
+  "url": "https://asmaagitdev.github.io/",
+  "email": "mailto:asmaa.srh@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Casablanca", "addressCountry": "MA" },
+  "sameAs": [
+    "https://linkedin.com/in/asmaa-sarih-1bb12b146",
+    "https://github.com/asmaaGitDev"
+  ],
+  "knowsAbout": ["Java", "Spring Boot", "Spring Security", "React", "SQL Server", "JWT", "REST API"]
+}
+</script>
 <style>
   :root{
     --navy: #16324F;
@@ -38,7 +54,6 @@
   a{color:inherit;}
   ::selection{background:var(--amber); color:var(--navy-deep);}
 
-  /* corner registration marks used at section boundaries */
   .reg::before, .reg::after{
     content:"+"; position:absolute; color:var(--line-cyan); font-size:14px; opacity:.55; font-family:var(--font-mono);
   }
@@ -99,10 +114,11 @@
   .btn{
     font-family:var(--font-mono); font-size:13px; letter-spacing:.03em; text-decoration:none;
     padding:12px 20px; border-radius:2px; display:inline-block; transition:transform .15s, box-shadow .15s;
+    border:none; cursor:pointer;
   }
   .btn-primary{background:var(--amber); color:var(--navy-deep); font-weight:600;}
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(231,169,76,.25);}
-  .btn-ghost{border:1px solid var(--line-cyan-dim); color:var(--paper);}
+  .btn-ghost{border:1px solid var(--line-cyan-dim); color:var(--paper); background:transparent;}
   .btn-ghost:hover{border-color:var(--amber); color:var(--amber);}
 
   /* schematic diagram */
@@ -150,6 +166,7 @@
   .proj-card{
     position:relative; border:1px solid var(--line-cyan-dim); border-radius:3px;
     padding:24px 22px; background:rgba(234,242,241,0.02);
+    display:flex; flex-direction:column;
   }
   .proj-card .corner{position:absolute; width:10px; height:10px; border-color:var(--amber); opacity:.7;}
   .proj-card .corner.tl{top:-1px; left:-1px; border-top:2px solid; border-left:2px solid;}
@@ -159,11 +176,31 @@
     font-family:var(--font-display); font-size:19px; font-weight:600; margin:8px 0 4px; color:var(--paper);
   }
   .proj-org{font-family:var(--font-mono); font-size:11.5px; color:var(--slate); margin-bottom:12px; display:block;}
+  .proj-shot{
+    width:100%; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--line-cyan-dim);
+    border-radius:2px; margin-bottom:14px; background:rgba(143,193,212,0.05);
+  }
+  .proj-shot-placeholder{
+    width:100%; aspect-ratio:16/9; border:1px dashed var(--line-cyan-dim); border-radius:2px;
+    margin-bottom:14px; display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:10px; color:var(--slate); letter-spacing:.06em; text-transform:uppercase;
+  }
   .proj-desc{font-size:14.5px; color:var(--paper-dim); margin-bottom:14px;}
-  .proj-tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .proj-tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px;}
   .proj-tags span{
     font-family:var(--font-mono); font-size:10.5px; color:var(--line-cyan);
     border:1px solid var(--line-cyan-dim); padding:3px 7px; border-radius:2px;
+  }
+  .proj-footer{ margin-top:auto; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .proj-link{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:.04em; text-decoration:none;
+    color:var(--amber); border:1px solid var(--amber); padding:6px 12px; border-radius:2px;
+    transition:background .15s, color .15s;
+  }
+  .proj-link:hover{ background:var(--amber); color:var(--navy-deep);}
+  .proj-badge{
+    font-family:var(--font-mono); font-size:10.5px; letter-spacing:.05em; color:var(--slate);
+    border:1px solid var(--line-cyan-dim); padding:6px 10px; border-radius:2px; text-transform:uppercase;
   }
 
   /* ---------- experience (log style) ---------- */
@@ -225,6 +262,7 @@
       <a href="#stack" data-i18n="nav.stack">STACK</a>
       <a href="#projects" data-i18n="nav.projects">PROJETS</a>
       <a href="#experience" data-i18n="nav.experience">EXPÉRIENCE</a>
+      <a href="#background" data-i18n="nav.background">FORMATION</a>
       <a href="#contact" data-i18n="nav.contact">CONTACT</a>
     </nav>
     <button id="langToggle">EN</button>
@@ -237,9 +275,10 @@
       <span class="eyebrow" data-i18n="hero.eyebrow">DISPONIBLE — REMOTE / NEARSHORE</span>
       <h1 class="name">Asmaa Sarih</h1>
       <div class="role" data-i18n="hero.role">Senior Ingénieure Java Full-Stack — Java 17 · Spring Boot · Spring Security · React</div>
-      <p class="pitch" data-i18n="hero.pitch">7+ ans d’expérience dans la conception, le développement et le déploiement d’applications métier d’entreprise, du modèle de données à l’interface. Spécialisée en Java, Spring Boot, Spring Security, React et SQL Server. Basée à Casablanca, ouverte aux opportunités remote et nearshore.</p>
+      <p class="pitch" data-i18n="hero.pitch">7+ ans d'expérience dans la conception, le développement et le déploiement d'applications métier d'entreprise, du modèle de données à l'interface. Spécialisée en Java, Spring Boot, Spring Security, React et SQL Server. Basée à Casablanca, ouverte aux opportunités remote et nearshore.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="mailto:asmaa.srh@gmail.com" data-i18n="hero.ctaEmail">M'écrire</a>
+        <a class="btn btn-ghost" id="cvLink" href="assets/cv/Asmaa-Sarih-CV-FR.pdf" download data-i18n="hero.ctaCV">Télécharger le CV</a>
         <a class="btn btn-ghost" href="https://linkedin.com/in/asmaa-sarih-1bb12b146" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/asmaaGitDev" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -251,26 +290,22 @@
             <path d="M0,0 L6,3 L0,6 Z" fill="#8FC1D4"/>
           </marker>
         </defs>
-        <!-- client -->
         <rect x="16" y="18" width="120" height="42" rx="2" fill="none" stroke="#8FC1D4" stroke-width="1"/>
         <text x="76" y="35" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">REACT / ANGULAR</text>
         <text x="76" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">CLIENT</text>
 
-        <!-- gateway -->
         <rect x="224" y="18" width="120" height="42" rx="2" fill="none" stroke="#E7A94C" stroke-width="1.2"/>
         <text x="284" y="35" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">SPRING SECURITY</text>
         <text x="284" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">JWT · GATEWAY</text>
 
         <line x1="136" y1="39" x2="222" y2="39" stroke="#8FC1D4" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
 
-        <!-- services -->
         <rect x="120" y="110" width="120" height="42" rx="2" fill="none" stroke="#8FC1D4" stroke-width="1"/>
         <text x="180" y="127" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">SPRING BOOT</text>
         <text x="180" y="140" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">SERVICES</text>
 
         <line x1="284" y1="60" x2="200" y2="108" stroke="#8FC1D4" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
 
-        <!-- data layer -->
         <rect x="30" y="200" width="130" height="42" rx="2" fill="none" stroke="#8FC1D4" stroke-width="1"/>
         <text x="95" y="217" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EAF2F1">JPA / HIBERNATE</text>
         <text x="95" y="230" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#6E8FA3">PERSISTENCE</text>
@@ -381,7 +416,7 @@
 
 <footer id="contact">
   <div class="wrap">
-    <span class="fig-label" data-i18n="footer.eyebrow">TITLE BLOCK</span>
+    <span class="fig-label" data-i18n="footer.eyebrow">CARTOUCHE</span>
     <div class="titleblock">
       <div class="titleblock-row">
         <div class="tb-cell">
@@ -427,43 +462,54 @@
 <script>
 const content = {
   fr: {
-    nav: { stack:"STACK", projects:"PROJETS", experience:"EXPÉRIENCE", contact:"CONTACT" },
+    nav: { stack:"STACK", projects:"PROJETS", experience:"EXPÉRIENCE", background:"FORMATION", contact:"CONTACT" },
     hero: {
       eyebrow:"DISPONIBLE — REMOTE / NEARSHORE",
       role:"Senior Ingénieure Java Full-Stack — Java 17 · Spring Boot · Spring Security · React",
       pitch:"7 ans d'expérience à concevoir et faire évoluer des applications d'entreprise, du modèle de données à l'interface. Basée à Casablanca, ouverte aux postes remote et nearshore.",
       ctaEmail:"M'écrire",
+      ctaCV:"Télécharger le CV",
       diagramCaption:"Architecture type des applications livrées"
     },
     stack: { title:"Stack technique", backend:"BACK-END", frontend:"FRONT-END", db:"BASES DE DONNÉES", devops:"DEVOPS & OUTILS", methods:"MÉTHODES" },
     projects: {
       title:"Projets",
+      // Pour chaque projet : "image" pointe vers une capture (ex: "assets/projects/vacataires.png").
+      // "demo" / "code" : laisser vide ("") tant qu'il n'y a rien de public à montrer — le badge
+      // "Projet interne" s'affiche automatiquement à la place du lien.
       items:[
         {
           num:"P.01", title:"Gestion des Vacataires", org:"OFPPT · Casablanca · 2021–Présent",
           desc:"Application métier destinée à la gestion des vacataires et de leurs processus de demande, répartition horaire, validation et suivi. Participation à la conception, au développement et au déploiement de la solution.",
-          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","WebSocket/STOMP","Docker"]
+          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","WebSocket/STOMP","Docker"],
+          image:"assets/projects/vacataires.png", demo:"", code:"", internal:true
         },
         {
           num:"P.02", title:"Plateforme de gestion des Internats", org:"OFPPT · Casablanca · 2021–Présent",
           desc:"Plateforme full-stack de gestion des internats, validations, capacités, critères, pièces justificatives et tableaux de bord.",
-          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","JPA/Hibernate"]
+          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","JPA/Hibernate"],
+          image:"assets/projects/internats.png", demo:"", code:"", internal:true
         },
         {
           num:"P.03", title:"Titulos — Gestion des titres scolaires", org:"Grupo Avalon · Tétouan · 2020–2021",
           desc:"Application de gestion des titres scolaires. Développement des modules métier, gestion et optimisation de la base PostgreSQL et génération de rapports dynamiques avec Jasper Report.",
-          tags:["Java/JEE","Spring MVC","Spring Data","Hibernate","AngularJS","PostgreSQL","Jasper Report"]
+          tags:["Java/JEE","Spring MVC","Spring Data","Hibernate","AngularJS","PostgreSQL","Jasper Report"],
+          image:"assets/projects/titulos.png", demo:"", code:"", internal:true
         },
         {
           num:"P.04", title:"Rooming List & AtlasVoyages", org:"Fractalité · Casablanca · 2018–2020",
           desc:"Développement d'un algorithme de gestion des Rooming Lists ainsi que conception et réalisation du site web AtlasVoyages et de son adaptation mobile.",
-          tags:["JavaScript","AngularJS","Node.js","MongoDB","Bootstrap","pdfMake"]
+          tags:["JavaScript","AngularJS","Node.js","MongoDB","Bootstrap","pdfMake"],
+          image:"assets/projects/atlasvoyages.png", demo:"", code:"", internal:true
         },
         {
           num:"P.05", title:"Plateforme de prise de rendez-vous en ligne", org:"Architeo · Rabat · Stage 2017",
           desc:"Création d'une plateforme permettant la prise de rendez-vous en ligne, développée en autonomie durant le stage.",
-          tags:["Java","Bootstrap","MySQL"]
+          tags:["Java","Bootstrap","MySQL"],
+          image:"assets/projects/architeo.png", demo:"", code:"", internal:true
         }
+        // Ajouter ici un P.06 "projet perso" avec demo + code renseignés dès qu'il est déployé —
+        // c'est la card qui convertira le mieux auprès des recruteurs.
       ]
     },
     experience: {
@@ -516,12 +562,13 @@ const content = {
     }
   },
   en: {
-    nav: { stack:"STACK", projects:"PROJECTS", experience:"EXPERIENCE", contact:"CONTACT" },
+    nav: { stack:"STACK", projects:"PROJECTS", experience:"EXPERIENCE", background:"EDUCATION", contact:"CONTACT" },
     hero: {
       eyebrow:"AVAILABLE — REMOTE / NEARSHORE",
       role:"Senior Full-Stack Java Engineer — Java 17 · Spring Boot · Spring Security · React",
-      pitch:"7+ years of experience designing, developing and deploying enterprise business applications, from data models and REST APIs to modern web interfaces. Specialized in Java, Spring Boot, Spring Security, React and SQL Server. Based in Casablanca, open to remote and nearshore opportunities across.",
+      pitch:"7+ years of experience designing, developing and deploying enterprise business applications, from data models and REST APIs to modern web interfaces. Specialized in Java, Spring Boot, Spring Security, React and SQL Server. Based in Casablanca, open to remote and nearshore opportunities.",
       ctaEmail:"Email me",
+      ctaCV:"Download CV",
       diagramCaption:"Typical architecture of delivered applications"
     },
     stack: { title:"Technical Stack", backend:"BACK-END", frontend:"FRONT-END", db:"DATABASES", devops:"DEVOPS & TOOLS", methods:"METHODS" },
@@ -531,27 +578,32 @@ const content = {
         {
           num:"P.01", title:"Temporary Trainers Management Platform", org:"OFPPT · Casablanca · 2021–Present",
           desc:"Enterprise application for managing temporary trainers and related request, scheduling, validation and tracking workflows. Contributed to the design, development and deployment of the solution.",
-          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","WebSocket/STOMP","Docker"]
+          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","WebSocket/STOMP","Docker"],
+          image:"assets/projects/vacataires.png", demo:"", code:"", internal:true
         },
         {
           num:"P.02", title:"Dormitory Management Platform", org:"OFPPT · Casablanca · 2021–Present",
           desc:"Full-stack platform for managing dormitory, validations, capacities, criteria, supporting documents and dashboards.",
-          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","JPA/Hibernate"]
+          tags:["Java 17","Spring Boot","Spring Security","React","SQL Server","JPA/Hibernate"],
+          image:"assets/projects/internats.png", demo:"", code:"", internal:true
         },
         {
           num:"P.03", title:"Titulos — School Records Management", org:"Grupo Avalon · Tétouan · 2020–2021",
           desc:"School records management application. Developed business modules, managed and optimized the PostgreSQL database, and generated dynamic reports with Jasper Report.",
-          tags:["Java/JEE","Spring MVC","Spring Data","Hibernate","AngularJS","PostgreSQL","Jasper Report"]
+          tags:["Java/JEE","Spring MVC","Spring Data","Hibernate","AngularJS","PostgreSQL","Jasper Report"],
+          image:"assets/projects/titulos.png", demo:"", code:"", internal:true
         },
         {
           num:"P.04", title:"Rooming List & AtlasVoyages", org:"Fractalité · Casablanca · 2018–2020",
           desc:"Developed a Rooming List management algorithm and designed and built the AtlasVoyages website and its mobile adaptation.",
-          tags:["JavaScript","AngularJS","Node.js","MongoDB","Bootstrap","pdfMake"]
+          tags:["JavaScript","AngularJS","Node.js","MongoDB","Bootstrap","pdfMake"],
+          image:"assets/projects/atlasvoyages.png", demo:"", code:"", internal:true
         },
         {
           num:"P.05", title:"Online Appointment Booking Platform", org:"Architeo · Rabat · Internship 2017",
           desc:"Built an online appointment booking platform independently during the internship.",
-          tags:["Java","Bootstrap","MySQL"]
+          tags:["Java","Bootstrap","MySQL"],
+          image:"assets/projects/architeo.png", demo:"", code:"", internal:true
         }
       ]
     },
@@ -616,6 +668,8 @@ function applyI18n(lang){
     path.forEach(p=> val = val ? val[p] : null);
     if(val) el.textContent = val;
   });
+  const cv = document.getElementById('cvLink');
+  cv.href = lang === 'fr' ? 'assets/cv/Asmaa-Sarih-CV-FR.pdf' : 'assets/cv/Asmaa-Sarih-CV-EN.pdf';
   renderProjects(lang);
   renderExperience(lang);
   document.getElementById('langToggle').textContent = lang === 'fr' ? 'EN' : 'FR';
@@ -623,17 +677,36 @@ function applyI18n(lang){
 
 function renderProjects(lang){
   const grid = document.getElementById('projGrid');
+  const badgeLabel = lang === 'fr' ? 'Projet interne' : 'Internal project';
+  const demoLabel = lang === 'fr' ? 'Démo' : 'Live demo';
+  const codeLabel = 'Code';
+  const shotLabel = lang === 'fr' ? 'Capture à venir' : 'Screenshot coming soon';
   grid.innerHTML = '';
   content[lang].projects.items.forEach(p=>{
     const card = document.createElement('div');
     card.className = 'proj-card';
+
+    const shotHtml = p.image
+      ? `<img class="proj-shot" src="${p.image}" alt="${p.title}"
+           onerror="this.outerHTML='<div class=&quot;proj-shot-placeholder&quot;>${shotLabel}</div>'">`
+      : `<div class="proj-shot-placeholder">${shotLabel}</div>`;
+
+    const footerHtml = `
+      <div class="proj-footer">
+        ${p.demo ? `<a class="proj-link" href="${p.demo}" target="_blank" rel="noopener">${demoLabel} ↗</a>` : ''}
+        ${p.code ? `<a class="proj-link" href="${p.code}" target="_blank" rel="noopener">${codeLabel} ↗</a>` : ''}
+        ${(!p.demo && !p.code && p.internal) ? `<span class="proj-badge">${badgeLabel}</span>` : ''}
+      </div>`;
+
     card.innerHTML = `
       <span class="corner tl"></span><span class="corner br"></span>
       <span class="proj-num">${p.num}</span>
       <h3>${p.title}</h3>
       <span class="proj-org">${p.org}</span>
+      ${shotHtml}
       <p class="proj-desc">${p.desc}</p>
       <div class="proj-tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+      ${footerHtml}
     `;
     grid.appendChild(card);
   });
